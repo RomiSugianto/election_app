@@ -11,8 +11,11 @@ class Dialog_login : public QDialog
 {
     Q_OBJECT
 
-public:
+public :
+    QString name;
     bool loginStatus=false;
+
+public:
     explicit Dialog_login(QWidget *parent = nullptr);
     ~Dialog_login();
 

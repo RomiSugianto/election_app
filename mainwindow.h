@@ -15,6 +15,10 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void connectToDatabase();
+    void cekLogin(bool loginStatus);
+
 private:
     Ui::MainWindow *ui;
 };

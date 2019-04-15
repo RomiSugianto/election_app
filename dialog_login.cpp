@@ -18,22 +18,22 @@ Dialog_login::~Dialog_login()
 
 void Dialog_login::on_pushButton_login_clicked()
 {
-    QString userId = ui->lineEdit_userId->text();
+    QString userId = ui->lineEdit_userid->text();
     QSqlQuery mysqlQuery;
 
-    QString query = "SELECT * FROM user where szUserName = '"+userId+"'";
+    QString query = "SELECT * FROM user where idUserName = '"+userId+"'";
 
     mysqlQuery.exec(query);
 
     if(mysqlQuery.size() > 0)
     {
-        ui->label->setText("Login Succeed");
+        ui->label_login_status->setText("Login Succeed");
         this->close();
         loginStatus=true;
     }
     else
     {
-        ui->label->setText("Your ID is not recognized by this server");
+        ui->label_login_status->setText("Your ID is not recognized by this server");
         loginStatus=false;
     }
 
