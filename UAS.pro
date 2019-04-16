@@ -42,7 +42,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-unix:!macx|win32: LIBS += -L$$PWD/'../MySQL Connector C 6.1/lib/' -llibmysql
+win32: LIBS += -L$$PWD/'MySQL Connector C 6.1/lib/' -llibmysql
 
-INCLUDEPATH += $$PWD/'../MySQL Connector C 6.1/include'
-DEPENDPATH += $$PWD/'../MySQL Connector C 6.1/include'
+INCLUDEPATH += $$PWD/'MySQL Connector C 6.1/include'
+DEPENDPATH += $$PWD/'MySQL Connector C 6.1/include'
