@@ -21,7 +21,7 @@ void Dialog_login::on_pushButton_login_clicked()
     QString userId = ui->lineEdit_userid->text();
     QSqlQuery mysqlQuery;
 
-    QString query = "SELECT * FROM user where idUserName = '"+userId+"'";
+    QString query = "SELECT * FROM user where idNumber = '"+userId+"'";
 
     mysqlQuery.exec(query);
 

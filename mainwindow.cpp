@@ -34,18 +34,43 @@ void MainWindow::cekLogin(bool loginStatus)
 void MainWindow::connectToDatabase()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setUserName("root");
-    db.setPassword("");
-    db.setDatabaseName("qt_database_2017");
+    db.setHostName("remotemysql.com");
+    db.setUserName("NA3pFq0MOb");
+    db.setPassword("BCGCKzepho");
+    db.setDatabaseName("NA3pFq0MOb");
 
     if(db.open())
     {
-        ui->statusBar->showMessage("Database Terkoneksi");
+        ui->statusBar->showMessage("Database Connected");
     }
     else
     {
-        ui->statusBar->showMessage("Database Tidak Terkoneksi");
+        ui->statusBar->showMessage("Database is not Connected");
     }
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    if(ui->radioButton_jp->isChecked())
+    {
+        QSqlQuery mysqlQuery;
+
+        QString query = "INSERT INTO settle(choice_id) VALUES (1);";
+
+        mysqlQuery.exec(query);
+
+    }
+    else if (ui->radioButton_na->isChecked())
+    {
+        QSqlQuery mysqlQuery;
+
+        QString query = "INSERT INTO settle(choice_id) VALUES (2);";
+
+        mysqlQuery.exec(query);
+    }
+    else
+    {
+        ui->statusBar->showMessage("you still haven't chosen anything");
+    }
+}

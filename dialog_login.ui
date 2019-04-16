@@ -29,10 +29,10 @@
   <widget class="QLabel" name="label_login_status">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>110</y>
-     <width>47</width>
-     <height>13</height>
+     <x>40</x>
+     <y>100</y>
+     <width>191</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">

@@ -36,7 +36,7 @@ public:
         pushButton_login->setGeometry(QRect(100, 70, 75, 23));
         label_login_status = new QLabel(Dialog_login);
         label_login_status->setObjectName(QString::fromUtf8("label_login_status"));
-        label_login_status->setGeometry(QRect(120, 110, 47, 13));
+        label_login_status->setGeometry(QRect(40, 100, 191, 20));
         lineEdit_userid = new QLineEdit(Dialog_login);
         lineEdit_userid->setObjectName(QString::fromUtf8("lineEdit_userid"));
         lineEdit_userid->setGeometry(QRect(80, 40, 113, 20));
