@@ -27,7 +27,7 @@ public:
     QWidget *centralWidget;
     QRadioButton *radioButton_jp;
     QRadioButton *radioButton_na;
-    QPushButton *pushButton;
+    QPushButton *pushButton_settle;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -45,9 +45,9 @@ public:
         radioButton_na = new QRadioButton(centralWidget);
         radioButton_na->setObjectName(QString::fromUtf8("radioButton_na"));
         radioButton_na->setGeometry(QRect(240, 90, 131, 20));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(140, 190, 75, 23));
+        pushButton_settle = new QPushButton(centralWidget);
+        pushButton_settle->setObjectName(QString::fromUtf8("pushButton_settle"));
+        pushButton_settle->setGeometry(QRect(140, 190, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -70,7 +70,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         radioButton_jp->setText(QApplication::translate("MainWindow", "<JOKOWI><PRABOWO>", nullptr));
         radioButton_na->setText(QApplication::translate("MainWindow", "<NURHADI><ALDO>", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "SETTLE", nullptr));
+        pushButton_settle->setText(QApplication::translate("MainWindow", "SETTLE", nullptr));
     } // retranslateUi
 
 };

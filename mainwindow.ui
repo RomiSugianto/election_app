@@ -40,7 +40,7 @@
      <string>&lt;NURHADI&gt;&lt;ALDO&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_settle">
     <property name="geometry">
      <rect>
       <x>140</x>

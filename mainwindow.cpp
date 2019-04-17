@@ -27,6 +27,7 @@ void MainWindow::cekLogin(bool loginStatus)
     if (loginStatus==false)
     {
 
+        close();
     }
 }
 
@@ -50,7 +51,7 @@ void MainWindow::connectToDatabase()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_settle_clicked()
 {
     if(ui->radioButton_jp->isChecked())
     {

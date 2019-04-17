@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[6];
-    char stringdata0[73];
+    char stringdata0[80];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,11 +36,11 @@ QT_MOC_LITERAL(1, 11, 17), // "connectToDatabase"
 QT_MOC_LITERAL(2, 29, 0), // ""
 QT_MOC_LITERAL(3, 30, 8), // "cekLogin"
 QT_MOC_LITERAL(4, 39, 11), // "loginStatus"
-QT_MOC_LITERAL(5, 51, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(5, 51, 28) // "on_pushButton_settle_clicked"
 
     },
     "MainWindow\0connectToDatabase\0\0cekLogin\0"
-    "loginStatus\0on_pushButton_clicked"
+    "loginStatus\0on_pushButton_settle_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,7 +78,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->connectToDatabase(); break;
         case 1: _t->cekLogin((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 2: _t->on_pushButton_clicked(); break;
+        case 2: _t->on_pushButton_settle_clicked(); break;
         default: ;
         }
     }

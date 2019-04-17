@@ -16,10 +16,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -W -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\..\UAS -I. -I"..\..\MySQL Connector C 6.1\include" -IC:\Qt\5.12.2\mingw73_64\include -IC:\Qt\5.12.2\mingw73_64\include\QtWidgets -IC:\Qt\5.12.2\mingw73_64\include\QtGui -IC:\Qt\5.12.2\mingw73_64\include\QtANGLE -IC:\Qt\5.12.2\mingw73_64\include\QtSql -IC:\Qt\5.12.2\mingw73_64\include\QtCore -Idebug -I. -IC:\VulkanSDK\1.0.51.0\include -IC:\Qt\5.12.2\mingw73_64\mkspecs\win32-g++ 
+INCPATH       = -I..\..\UAS -I. -I"..\MySQL Connector C 6.1\include" -IC:\Qt\5.12.2\mingw73_64\include -IC:\Qt\5.12.2\mingw73_64\include\QtWidgets -IC:\Qt\5.12.2\mingw73_64\include\QtGui -IC:\Qt\5.12.2\mingw73_64\include\QtANGLE -IC:\Qt\5.12.2\mingw73_64\include\QtSql -IC:\Qt\5.12.2\mingw73_64\include\QtCore -Idebug -I. -IC:\VulkanSDK\1.0.51.0\include -IC:\Qt\5.12.2\mingw73_64\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -L"D:\Google Drive\lecture\QT\GUI\MySQL Connector C 6.1\lib" -llibmysql -LC:\Qt\5.12.2\mingw73_64\lib C:\Qt\5.12.2\mingw73_64\lib\libQt5Widgetsd.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Guid.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Sqld.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Cored.a  -lmingw32 C:\Qt\5.12.2\mingw73_64\lib\libqtmaind.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
+LIBS        =        -L"D:\Google Drive\lecture\QT\GUI\UAS\MySQL Connector C 6.1\lib" -llibmysql -LC:\Qt\5.12.2\mingw73_64\lib C:\Qt\5.12.2\mingw73_64\lib\libQt5Widgetsd.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Guid.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Sqld.a C:\Qt\5.12.2\mingw73_64\lib\libQt5Cored.a  -lmingw32 C:\Qt\5.12.2\mingw73_64\lib\libqtmaind.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
 QMAKE         = C:\Qt\5.12.2\mingw73_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -220,7 +220,7 @@ debug/moc_mainwindow.cpp: ../mainwindow.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtGui/qicon.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.2\mingw73_64\bin\moc.exe $(DEFINES) --include "D:/Google Drive/lecture/QT/GUI/UAS/build-UAS-Desktop_Qt_5_12_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.12.2/mingw73_64/mkspecs/win32-g++ -I"D:/Google Drive/lecture/QT/GUI/UAS" -I"D:/Google Drive/lecture/QT/GUI/MySQL Connector C 6.1/include" -IC:/Qt/5.12.2/mingw73_64/include -IC:/Qt/5.12.2/mingw73_64/include/QtWidgets -IC:/Qt/5.12.2/mingw73_64/include/QtGui -IC:/Qt/5.12.2/mingw73_64/include/QtANGLE -IC:/Qt/5.12.2/mingw73_64/include/QtSql -IC:/Qt/5.12.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\5.12.2\mingw73_64\bin\moc.exe $(DEFINES) --include "D:/Google Drive/lecture/QT/GUI/UAS/build-UAS-Desktop_Qt_5_12_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.12.2/mingw73_64/mkspecs/win32-g++ -I"D:/Google Drive/lecture/QT/GUI/UAS" -I"D:/Google Drive/lecture/QT/GUI/UAS/MySQL Connector C 6.1/include" -IC:/Qt/5.12.2/mingw73_64/include -IC:/Qt/5.12.2/mingw73_64/include/QtWidgets -IC:/Qt/5.12.2/mingw73_64/include/QtGui -IC:/Qt/5.12.2/mingw73_64/include/QtANGLE -IC:/Qt/5.12.2/mingw73_64/include/QtSql -IC:/Qt/5.12.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_dialog_login.cpp: ../dialog_login.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/QDialog \
@@ -329,7 +329,7 @@ debug/moc_dialog_login.cpp: ../dialog_login.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.2\mingw73_64\bin\moc.exe $(DEFINES) --include "D:/Google Drive/lecture/QT/GUI/UAS/build-UAS-Desktop_Qt_5_12_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.12.2/mingw73_64/mkspecs/win32-g++ -I"D:/Google Drive/lecture/QT/GUI/UAS" -I"D:/Google Drive/lecture/QT/GUI/MySQL Connector C 6.1/include" -IC:/Qt/5.12.2/mingw73_64/include -IC:/Qt/5.12.2/mingw73_64/include/QtWidgets -IC:/Qt/5.12.2/mingw73_64/include/QtGui -IC:/Qt/5.12.2/mingw73_64/include/QtANGLE -IC:/Qt/5.12.2/mingw73_64/include/QtSql -IC:/Qt/5.12.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\dialog_login.h -o debug\moc_dialog_login.cpp
+	C:\Qt\5.12.2\mingw73_64\bin\moc.exe $(DEFINES) --include "D:/Google Drive/lecture/QT/GUI/UAS/build-UAS-Desktop_Qt_5_12_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.12.2/mingw73_64/mkspecs/win32-g++ -I"D:/Google Drive/lecture/QT/GUI/UAS" -I"D:/Google Drive/lecture/QT/GUI/UAS/MySQL Connector C 6.1/include" -IC:/Qt/5.12.2/mingw73_64/include -IC:/Qt/5.12.2/mingw73_64/include/QtWidgets -IC:/Qt/5.12.2/mingw73_64/include/QtGui -IC:/Qt/5.12.2/mingw73_64/include/QtANGLE -IC:/Qt/5.12.2/mingw73_64/include/QtSql -IC:/Qt/5.12.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\dialog_login.h -o debug\moc_dialog_login.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -595,6 +595,11 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qmenu.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qaction.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/QRadioButton \
+		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/QStatusBar \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.12.2/mingw73_64/include/QtWidgets/QToolBar \
