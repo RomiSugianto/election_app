@@ -4,6 +4,7 @@
 #include "QtSql/QSqlDatabase"
 #include "QtSql/QSqlQuery"
 #include "dialog_login.h"
+#include "dialog_complete.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,7 +28,8 @@ void MainWindow::cekLogin(bool loginStatus)
     if (loginStatus==false)
     {
 
-        close();
+        ui->pushButton_settle->hide();
+        ui->statusBar->showMessage("You're not login yet");
     }
 }
 
@@ -53,22 +55,33 @@ void MainWindow::connectToDatabase()
 
 void MainWindow::on_pushButton_settle_clicked()
 {
+    Dialog_complete complete;
+    Dialog_login login;
+    QString name = login.name;
     if(ui->radioButton_jp->isChecked())
     {
         QSqlQuery mysqlQuery;
 
-        QString query = "INSERT INTO settle(choice_id) VALUES (1);";
+        QString settle = "INSERT INTO settle(choice_id) VALUES (1);";
+        QString status = "update user set iStatus = 1 where szName = '"+name+"';";
 
-        mysqlQuery.exec(query);
+        mysqlQuery.exec(settle);
+        mysqlQuery.exec(status);
+        this->close();
+        complete.exec();
 
     }
     else if (ui->radioButton_na->isChecked())
     {
         QSqlQuery mysqlQuery;
 
-        QString query = "INSERT INTO settle(choice_id) VALUES (2);";
+        QString settle = "INSERT INTO settle(choice_id) VALUES (2);";
+        QString status = "update user set iStatus = 1 where szName = '"+name+"';";
 
-        mysqlQuery.exec(query);
+        mysqlQuery.exec(settle);
+        mysqlQuery.exec(status);
+        this->close();
+        complete.exec();
     }
     else
     {

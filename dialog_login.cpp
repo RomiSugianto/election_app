@@ -24,6 +24,7 @@ void Dialog_login::on_pushButton_login_clicked()
     QString query = "SELECT * FROM user where idNumber = '"+userId+"'";
 
     mysqlQuery.exec(query);
+    QString name = mysqlQuery.value("szName").toString();
 
     if(mysqlQuery.size() > 0)
     {
