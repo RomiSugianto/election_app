@@ -51,7 +51,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 21));
+        menuBar->setGeometry(QRect(0, 0, 400, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -67,7 +67,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Choose", nullptr));
         radioButton_jp->setText(QApplication::translate("MainWindow", "<JOKOWI><PRABOWO>", nullptr));
         radioButton_na->setText(QApplication::translate("MainWindow", "<NURHADI><ALDO>", nullptr));
         pushButton_settle->setText(QApplication::translate("MainWindow", "SETTLE", nullptr));

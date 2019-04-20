@@ -51,7 +51,7 @@ public:
 
     void retranslateUi(QDialog *Dialog_login)
     {
-        Dialog_login->setWindowTitle(QApplication::translate("Dialog_login", "Dialog", nullptr));
+        Dialog_login->setWindowTitle(QApplication::translate("Dialog_login", "Login", nullptr));
         pushButton_login->setText(QApplication::translate("Dialog_login", "Login", nullptr));
         label_login_status->setText(QString());
         label->setText(QApplication::translate("Dialog_login", "Input Your ID", nullptr));

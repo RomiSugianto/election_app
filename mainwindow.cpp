@@ -5,6 +5,7 @@
 #include "QtSql/QSqlQuery"
 #include "dialog_login.h"
 #include "dialog_complete.h"
+#include "dialog_admin.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,8 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connectToDatabase();
 
     Dialog_login loginPage;
+    Dialog_admin adminPage;
     loginPage.exec();
     cekLogin(loginPage.loginStatus);
+    QString name = loginPage.name;
+    ui->statusBar->showMessage(name);
 }
 
 MainWindow::~MainWindow()
@@ -29,7 +33,7 @@ void MainWindow::cekLogin(bool loginStatus)
     {
 
         ui->pushButton_settle->hide();
-        ui->statusBar->showMessage("You're not login yet");
+//        ui->statusBar->showMessage("You're not login yet");
     }
 }
 
@@ -44,11 +48,11 @@ void MainWindow::connectToDatabase()
 
     if(db.open())
     {
-        ui->statusBar->showMessage("Database Connected");
+//        ui->statusBar->showMessage("Database Connected");
     }
     else
     {
-        ui->statusBar->showMessage("Database is not Connected");
+//        ui->statusBar->showMessage("Database is not Connected");
     }
 }
 

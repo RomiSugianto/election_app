@@ -28,17 +28,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dialog_login.cpp \
-    dialog_complete.cpp
+    dialog_complete.cpp \
+    dialog_admin.cpp
 
 HEADERS += \
         mainwindow.h \
     dialog_login.h \
-    dialog_complete.h
+    dialog_complete.h \
+    dialog_admin.h
 
 FORMS += \
         mainwindow.ui \
     dialog_login.ui \
-    dialog_complete.ui
+    dialog_complete.ui \
+    dialog_admin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

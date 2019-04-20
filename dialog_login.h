@@ -13,7 +13,9 @@ class Dialog_login : public QDialog
 
 public :
     QString name;
-    bool loginStatus=false;    
+    bool loginStatus=false;
+    int lvl=0;
+    int status;
 
 public:
     explicit Dialog_login(QWidget *parent = nullptr);

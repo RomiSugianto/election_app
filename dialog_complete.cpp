@@ -12,3 +12,8 @@ Dialog_complete::~Dialog_complete()
 {
     delete ui;
 }
+
+void Dialog_complete::on_pushButton_clicked()
+{
+    this->close();
+}
