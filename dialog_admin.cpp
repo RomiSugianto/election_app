@@ -33,7 +33,7 @@ void Dialog_admin::on_pushButton_show_clicked()
             total_jp = mysqlQuery.value("total").toInt();
             if(mysqlQuery.size() > 0)
             {
-                ui->label_jp_count->setText(QString::number(total_jp));
+                ui->lcdNumber_jp->display(QString::number(total_jp));
             }
             break;
         }
@@ -45,7 +45,7 @@ void Dialog_admin::on_pushButton_show_clicked()
             total_jp = mysqlQuery.value("total").toInt();
             if(mysqlQuery.size() > 0)
             {
-                ui->label_na_count->setText(QString::number(total_jp));
+                ui->lcdNumber_na->display(QString::number(total_jp));
             }
             break;
         }
@@ -57,7 +57,7 @@ void Dialog_admin::on_pushButton_show_clicked()
             total_nsy = mysqlQuery.value("total").toInt();
             if(mysqlQuery.size() > 0)
             {
-                ui->label_nsy_count->setText(QString::number(total_nsy));
+                ui->lcdNumber_nsy->display(QString::number(total_nsy));
             }
             break;
         }
@@ -69,7 +69,7 @@ void Dialog_admin::on_pushButton_show_clicked()
             total_settle = mysqlQuery.value("total").toInt();
             if(mysqlQuery.size() > 0)
             {
-                ui->label_settle_count->setText(QString::number(total_settle));
+                ui->lcdNumber_settle->display(QString::number(total_settle));
             }
             break;
         }
