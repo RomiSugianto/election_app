@@ -11,9 +11,15 @@ class Dialog_admin : public QDialog
 {
     Q_OBJECT
 
+public :
+    int total_jp,total_np,total_nsy,total_settle;
+
 public:
     explicit Dialog_admin(QWidget *parent = nullptr);
     ~Dialog_admin();
+
+private slots:
+    void on_pushButton_show_clicked();
 
 private:
     Ui::Dialog_admin *ui;

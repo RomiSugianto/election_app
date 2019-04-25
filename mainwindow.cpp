@@ -17,9 +17,17 @@ MainWindow::MainWindow(QWidget *parent) :
     Dialog_login loginPage;
     Dialog_admin adminPage;
     loginPage.exec();
+    if (loginPage.lvl == 1 )
+    {
+        adminPage.exec();
+    }
     cekLogin(loginPage.loginStatus);
+    cekStatus(loginPage.status);
     QString name = loginPage.name;
-    ui->statusBar->showMessage(name);
+    if (loginPage.status == 1)
+    {
+        MainWindow::close();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -27,32 +35,46 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::cekStatus(bool settleStatus)
+{
+    if (settleStatus==true)
+    {
+        ui->pushButton_settle->hide();
+        ui->statusBar->showMessage("you've already choose");
+    }
+}
+
 void MainWindow::cekLogin(bool loginStatus)
 {
     if (loginStatus==false)
     {
-
         ui->pushButton_settle->hide();
-//        ui->statusBar->showMessage("You're not login yet");
+        ui->statusBar->showMessage("You're not login yet");
     }
 }
 
 //Database Area
 void MainWindow::connectToDatabase()
 {
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("remotemysql.com");
     db.setUserName("NA3pFq0MOb");
     db.setPassword("BCGCKzepho");
     db.setDatabaseName("NA3pFq0MOb");
+//    db.setHostName("127.0.0.1");
+//    db.setUserName("user");
+//    db.setPassword("user");
+//    db.setDatabaseName("qt_database_2017");
+
 
     if(db.open())
     {
-//        ui->statusBar->showMessage("Database Connected");
+        ui->statusBar->showMessage("Database Connected");
     }
     else
     {
-//        ui->statusBar->showMessage("Database is not Connected");
+        ui->statusBar->showMessage("Database is not Connected");
     }
 }
 

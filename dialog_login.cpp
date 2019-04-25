@@ -37,18 +37,13 @@ void Dialog_login::on_pushButton_login_clicked()
                 this->close();
                 loginStatus=true;
             }
-            else
-            {
-                ui->label_login_status->setText("Your ID is not recognized by this server");
-                loginStatus=false;
-            }
             break;
         }
 
     }
     else
     {
-        ui->label_login_status->setText("Gagal");
+        ui->label_login_status->setText("Your ID is not recognized by this server");
     }
 
 }

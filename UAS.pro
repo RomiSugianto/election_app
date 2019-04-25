@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dialog_error.cpp \
         main.cpp \
         mainwindow.cpp \
     dialog_login.cpp \

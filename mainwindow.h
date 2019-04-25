@@ -18,8 +18,8 @@ public:
 private slots:
     void connectToDatabase();
     void cekLogin(bool loginStatus);
-
     void on_pushButton_settle_clicked();
+    void cekStatus(bool settleStatus);
 
 private:
     Ui::MainWindow *ui;
