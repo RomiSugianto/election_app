@@ -42,7 +42,7 @@ public:
         lineEdit_userid->setGeometry(QRect(80, 40, 113, 20));
         label = new QLabel(Dialog_login);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(100, 10, 71, 20));
+        label->setGeometry(QRect(100, 10, 121, 20));
 
         retranslateUi(Dialog_login);
 

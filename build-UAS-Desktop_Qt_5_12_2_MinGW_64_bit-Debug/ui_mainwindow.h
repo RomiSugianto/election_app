@@ -44,7 +44,7 @@ public:
         radioButton_jp->setGeometry(QRect(20, 90, 161, 21));
         radioButton_na = new QRadioButton(centralWidget);
         radioButton_na->setObjectName(QString::fromUtf8("radioButton_na"));
-        radioButton_na->setGeometry(QRect(240, 90, 131, 20));
+        radioButton_na->setGeometry(QRect(240, 90, 151, 20));
         pushButton_settle = new QPushButton(centralWidget);
         pushButton_settle->setObjectName(QString::fromUtf8("pushButton_settle"));
         pushButton_settle->setGeometry(QRect(140, 190, 75, 23));
