@@ -12,6 +12,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    QString chooser;
+
+public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     cekLogin(loginPage.loginStatus);
     cekStatus(loginPage.status);
-    QString name = loginPage.name;
+    chooser = loginPage.name;
     if (loginPage.status == 1)
     {
         MainWindow::close();
@@ -83,13 +83,12 @@ void MainWindow::on_pushButton_settle_clicked()
 {
     Dialog_complete complete;
     Dialog_login login;
-    QString name = login.name;
     if(ui->radioButton_jp->isChecked())
     {
         QSqlQuery mysqlQuery;
 
         QString settle = "INSERT INTO settle(choice_id) VALUES (1);";
-        QString status = "update user set iStatus = 1 where szName = '"+name+"';";
+        QString status = "update user set iStatus = 1 where szName = '"+chooser+"';";
 
         mysqlQuery.exec(settle);
         mysqlQuery.exec(status);
@@ -102,7 +101,7 @@ void MainWindow::on_pushButton_settle_clicked()
         QSqlQuery mysqlQuery;
 
         QString settle = "INSERT INTO settle(choice_id) VALUES (2);";
-        QString status = "update user set iStatus = 1 where szName = '"+name+"';";
+        QString status = "update user set iStatus = 1 where szName = '"+chooser+"';";
 
         mysqlQuery.exec(settle);
         mysqlQuery.exec(status);
