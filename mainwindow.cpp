@@ -17,22 +17,26 @@ MainWindow::MainWindow(QWidget *parent) :
     Dialog_login loginPage;
     Dialog_admin adminPage;
     loginPage.exec();
-    if (loginPage.lvl == 1 )
-    {
-        adminPage.exec();
-    }
+    cekLvl(loginPage.lvl);
     cekLogin(loginPage.loginStatus);
     cekStatus(loginPage.status);
     chooser = loginPage.name;
-    if (loginPage.status == 1)
-    {
-        MainWindow::close();
-    }
+    this->close();
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::cekLvl(bool lvl)
+{
+    Dialog_admin adminPage;
+    if (lvl == 1 )
+    {
+        adminPage.exec();
+    }
 }
 
 void MainWindow::cekStatus(bool settleStatus)
@@ -41,6 +45,7 @@ void MainWindow::cekStatus(bool settleStatus)
     {
         ui->pushButton_settle->hide();
         ui->statusBar->showMessage("you've already choose");
+        MainWindow::close();
     }
 }
 

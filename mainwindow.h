@@ -23,6 +23,7 @@ private slots:
     void cekLogin(bool loginStatus);
     void on_pushButton_settle_clicked();
     void cekStatus(bool settleStatus);
+    void cekLvl(bool lvl);
 
 private:
     Ui::MainWindow *ui;
