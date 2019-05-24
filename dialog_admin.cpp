@@ -9,6 +9,7 @@
 #include "QByteArray"
 #include "QBuffer"
 #include "QFileDialog"
+#include "function.h"
 
 Dialog_admin::Dialog_admin(QWidget *parent) :
     QDialog(parent),
@@ -16,6 +17,7 @@ Dialog_admin::Dialog_admin(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->progressBar->hide();
+    loadImage();
 }
 
 Dialog_admin::~Dialog_admin()
@@ -188,19 +190,42 @@ void Dialog_admin::on_pushButton_pic_jp_clicked()
 
     ui->label_pic_jp->setPixmap(imgResize);
 
-    saveImage(imgResize);
+    saveImageJp(imgResize);
 
-//    QPixmap imgLoad = loadImage();
-
-//    ui->label_pic_jp->setPixmap(imgLoad);
 }
 
 void Dialog_admin::on_pushButton_pic_na_clicked()
 {
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    "Open Image", // title dialognya
+                                                    "C:/", //default path
+                                                    "(*.JPG);;(*.PNG);;(*;;JPEG);;(*.BMP)");  //filter type file (extension)
+
+    QPixmap img(fileName);
+
+    QPixmap imgResize = img.scaled(
+                                   ui->label_pic_na->width(),
+                                   ui->label_pic_na->height(),
+                                   Qt::KeepAspectRatio,
+                                   Qt::FastTransformation);
+
+    ui->label_pic_na->setPixmap(imgResize);
+
+    saveImageNa(imgResize);
 
 }
 
-void Dialog_admin::saveImage(QPixmap pixImg)
+void Dialog_admin::loadImage()
+{
+    Function function;
+    QPixmap imgLoadJp = function.getImageJp();
+    QPixmap imgLoadNa = function.getImageNa();
+
+    ui->label_pic_jp->setPixmap(imgLoadJp);
+    ui->label_pic_na->setPixmap(imgLoadNa);
+}
+
+void Dialog_admin::saveImageJp(QPixmap pixImg)
 {
     QByteArray byteImg;
     QBuffer buffImage(&byteImg);
@@ -219,11 +244,39 @@ void Dialog_admin::saveImage(QPixmap pixImg)
     query.bindValue(":imgData", byteImg);
     if(query.exec())
     {
-        ui->label_status_pic->setText("Berhasil Input");
+        ui->label_status_pic->setText("Updated Successfully");
 
     }
     else
     {
-        ui->label_status_pic->setText("Gagal Input");
+        ui->label_status_pic->setText("Update Failed");
+    }
+}
+
+void Dialog_admin::saveImageNa(QPixmap pixImg)
+{
+    QByteArray byteImg;
+    QBuffer buffImage(&byteImg);
+
+    buffImage.open(QBuffer::WriteOnly);
+
+    QImage img = pixImg.toImage();
+
+    QPixmap::fromImage(img).save(&buffImage, "JPG");
+
+    QString queryInsert =
+            "UPDATE image SET imgData=:imgData WHERE iOwn=2";
+    QSqlQuery query;
+
+    query.prepare(queryInsert);
+    query.bindValue(":imgData", byteImg);
+    if(query.exec())
+    {
+        ui->label_status_pic->setText("Updated Successfully");
+
+    }
+    else
+    {
+        ui->label_status_pic->setText("Update Failed");
     }
 }

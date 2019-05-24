@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>600</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,10 +18,16 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>160</y>
+      <y>230</y>
       <width>161</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string>&lt;JOKOWI&gt;&lt;PRABOWO&gt;</string>
@@ -30,11 +36,17 @@
    <widget class="QRadioButton" name="radioButton_na">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>160</y>
+      <x>430</x>
+      <y>230</y>
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string>&lt;NURHADI&gt;&lt;ALDO&gt;</string>
@@ -43,8 +55,8 @@
    <widget class="QPushButton" name="pushButton_settle">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>190</y>
+      <x>260</x>
+      <y>130</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -56,10 +68,10 @@
    <widget class="QLabel" name="label_jp">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>161</width>
-      <height>131</height>
+      <x>0</x>
+      <y>0</y>
+      <width>200</width>
+      <height>230</height>
      </rect>
     </property>
     <property name="text">
@@ -69,10 +81,10 @@
    <widget class="QLabel" name="label_na">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>20</y>
-      <width>171</width>
-      <height>131</height>
+      <x>400</x>
+      <y>0</y>
+      <width>200</width>
+      <height>230</height>
      </rect>
     </property>
     <property name="text">
@@ -85,7 +97,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>600</width>
      <height>20</height>
     </rect>
    </property>

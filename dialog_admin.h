@@ -26,7 +26,10 @@ private slots:
     void insertDataToTable(QList<UserData> listUserData);
     QList<UserData> GetUserData();
     void setHeaderTable();
-    void saveImage(QPixmap pixImg);
+    void saveImageJp(QPixmap pixImg);
+    void saveImageNa(QPixmap pixImg);
+    void loadImage();
+
 
     void on_pushButton_pic_jp_clicked();
 
