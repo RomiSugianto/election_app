@@ -5,6 +5,7 @@
 #include "QtSql/QSqlQuery"
 #include "mainwindow.h"
 #include "QTimer"
+#include "user.h"
 
 Dialog_admin::Dialog_admin(QWidget *parent) :
     QDialog(parent),
@@ -19,8 +20,77 @@ Dialog_admin::~Dialog_admin()
     delete ui;
 }
 
+void Dialog_admin::setHeaderTable()
+{
+    QStringList headerData;
+    headerData.append("User ID");
+    headerData.append("Nama");
+    headerData.append("Alamat");
+    headerData.append("Status");
+
+    ui->tableWidget->setColumnCount(headerData.count());
+    ui->tableWidget->setHorizontalHeaderLabels(headerData);
+}
+
+QList<UserData >Dialog_admin::GetUserData()
+{
+    QList<UserData> listUserData;
+    UserData userData;
+
+    QSqlQuery mysqlQuery;
+
+    QString query = "SELECT * FROM user WHERE iLvl = 0;";
+
+    int userId;
+    QString userName;
+    QString userAddress;
+    int userStatus;
+
+    mysqlQuery.exec(query); //.exec berarti mengeksekusi query tersebut
+
+    if(mysqlQuery.size() > 0) //size() > 0 artinya, jika datanya lebih dari 0
+    {
+        while(mysqlQuery.next()) // jika data ada, dan diulang sebanyak data yang ada
+        {
+            userId = mysqlQuery.value("idNumber").toInt();  //.value ini menunjuk ke nama kolom, makanya didalemnya di isi  dengan szForbiddenWord, ditambahkan .toString();
+            userName = mysqlQuery.value("szName").toString();
+            userStatus = mysqlQuery.value("iStatus").toInt();
+            userAddress = mysqlQuery.value("szAddress").toString();
+
+            userData.setUserId(userId);
+            userData.setName(userName);
+            userData.setStatus(userStatus);
+            userData.setAddress(userAddress);
+
+            listUserData.append(userData);
+        }
+    }
+
+    return listUserData;
+}
+
+void Dialog_admin::insertDataToTable(QList<UserData> listUserData)
+{
+    foreach (UserData userData, listUserData)
+    {
+        ui->tableWidget->setRowCount(ui->tableWidget->rowCount() + 1);
+
+        int row = ui->tableWidget->rowCount()-1;
+
+        ui->tableWidget->setItem(row, 0, new QTableWidgetItem(QString::number(userData.getUserId())));
+        ui->tableWidget->setItem(row, 1, new QTableWidgetItem(userData.getName()));
+        ui->tableWidget->setItem(row, 2, new QTableWidgetItem(userData.getAddress()));
+        ui->tableWidget->setItem(row, 3, new QTableWidgetItem(QString::number(userData.getStatus())));
+    }
+}
+
 void Dialog_admin::on_pushButton_show_clicked()
 {
+    ui->tableWidget->setRowCount(0);
+    QList<UserData> listUserData = GetUserData();
+    setHeaderTable();
+    insertDataToTable(listUserData);
+
     ui->progressBar->show();
     QSqlQuery mysqlQuery;
 
@@ -28,6 +98,7 @@ void Dialog_admin::on_pushButton_show_clicked()
     QString query_na = "SELECT COUNT(choice_id) AS total  FROM settle WHERE choice_id = 2;";
     QString query_nsy = "select count(szName) as total from `user` where iStatus = 0;";
     QString query_settle = "select count(szName) as total from `user` where iStatus = 1;";
+    QString query_user = "select count(szName) as total from `user` where iLvl = 0;";
 
     if(mysqlQuery.exec(query_jp))
     {
@@ -78,6 +149,18 @@ void Dialog_admin::on_pushButton_show_clicked()
             {
                 ui->lcdNumber_settle->display(QString::number(total_settle));
                 ui->progressBar->hide();
+            }
+            break;
+        }
+    }
+    if(mysqlQuery.exec(query_user))
+    {
+        while(mysqlQuery.next())
+        {
+            total_user = mysqlQuery.value("total").toInt();
+            if(mysqlQuery.size() > 0)
+            {
+
             }
             break;
         }

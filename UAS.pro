@@ -35,7 +35,8 @@ HEADERS += \
         mainwindow.h \
     dialog_login.h \
     dialog_complete.h \
-    dialog_admin.h
+    dialog_admin.h \
+    user.h
 
 FORMS += \
         mainwindow.ui \
