@@ -24,6 +24,9 @@ private slots:
     void on_pushButton_settle_clicked();
     void cekStatus(bool settleStatus);
     void cekLvl(bool lvl);
+    QPixmap getImageJp();
+    QPixmap getImageNa();
+    void loadImage();
 
 private:
     Ui::MainWindow *ui;

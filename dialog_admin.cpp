@@ -6,6 +6,9 @@
 #include "mainwindow.h"
 #include "QTimer"
 #include "user.h"
+#include "QByteArray"
+#include "QBuffer"
+#include "QFileDialog"
 
 Dialog_admin::Dialog_admin(QWidget *parent) :
     QDialog(parent),
@@ -166,4 +169,61 @@ void Dialog_admin::on_pushButton_show_clicked()
         }
      }
 
+}
+
+void Dialog_admin::on_pushButton_pic_jp_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    "Open Image", // title dialognya
+                                                    "C:/", //default path
+                                                    "(*.JPG);;(*.PNG);;(*;;JPEG);;(*.BMP)");  //filter type file (extension)
+
+    QPixmap img(fileName);
+
+    QPixmap imgResize = img.scaled(
+                                   ui->label_pic_jp->width(),
+                                   ui->label_pic_jp->height(),
+                                   Qt::KeepAspectRatio,
+                                   Qt::FastTransformation);
+
+    ui->label_pic_jp->setPixmap(imgResize);
+
+    saveImage(imgResize);
+
+//    QPixmap imgLoad = loadImage();
+
+//    ui->label_pic_jp->setPixmap(imgLoad);
+}
+
+void Dialog_admin::on_pushButton_pic_na_clicked()
+{
+
+}
+
+void Dialog_admin::saveImage(QPixmap pixImg)
+{
+    QByteArray byteImg;
+    QBuffer buffImage(&byteImg);
+
+    buffImage.open(QBuffer::WriteOnly);
+
+    QImage img = pixImg.toImage();
+
+    QPixmap::fromImage(img).save(&buffImage, "JPG");
+
+    QString queryInsert =
+            "UPDATE image SET imgData=:imgData WHERE iOwn=1";
+    QSqlQuery query;
+
+    query.prepare(queryInsert);
+    query.bindValue(":imgData", byteImg);
+    if(query.exec())
+    {
+        ui->label_status_pic->setText("Berhasil Input");
+
+    }
+    else
+    {
+        ui->label_status_pic->setText("Gagal Input");
+    }
 }

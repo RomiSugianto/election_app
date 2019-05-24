@@ -32,6 +32,7 @@ SOURCES += \
     dialog_admin.cpp
 
 HEADERS += \
+    function.h \
         mainwindow.h \
     dialog_login.h \
     dialog_complete.h \

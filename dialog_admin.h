@@ -26,6 +26,11 @@ private slots:
     void insertDataToTable(QList<UserData> listUserData);
     QList<UserData> GetUserData();
     void setHeaderTable();
+    void saveImage(QPixmap pixImg);
+
+    void on_pushButton_pic_jp_clicked();
+
+    void on_pushButton_pic_na_clicked();
 
 private:
     Ui::Dialog_admin *ui;

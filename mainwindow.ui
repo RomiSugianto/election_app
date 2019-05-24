@@ -17,8 +17,8 @@
    <widget class="QRadioButton" name="radioButton_jp">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>90</y>
+      <x>30</x>
+      <y>160</y>
       <width>161</width>
       <height>21</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QRadioButton" name="radioButton_na">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>90</y>
+      <x>230</x>
+      <y>160</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -43,7 +43,7 @@
    <widget class="QPushButton" name="pushButton_settle">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>160</x>
       <y>190</y>
       <width>75</width>
       <height>23</height>
@@ -51,6 +51,32 @@
     </property>
     <property name="text">
      <string>SETTLE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_jp">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>161</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_na">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>171</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

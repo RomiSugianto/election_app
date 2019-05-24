@@ -6,6 +6,9 @@
 #include "dialog_login.h"
 #include "dialog_complete.h"
 #include "dialog_admin.h"
+#include "QByteArray"
+#include "QBuffer"
+#include "QFileDialog"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     cekStatus(loginPage.status);
     chooser = loginPage.name;
     this->close();
+    loadImage();
 
 }
 
@@ -117,4 +121,56 @@ void MainWindow::on_pushButton_settle_clicked()
     {
         ui->statusBar->showMessage("you still haven't chosen anything");
     }
+}
+
+void MainWindow::loadImage()
+{
+    QPixmap imgLoadJp = getImageJp();
+    QPixmap imgLoadNa = getImageNa();
+
+    ui->label_jp->setPixmap(imgLoadJp);
+    ui->label_na->setPixmap(imgLoadNa);
+
+}
+
+QPixmap MainWindow::getImageJp()
+{
+    QPixmap pixImg;
+    QString querySelect = "SELECT imgData FROM image where iOwn = 1";
+    QSqlQuery query;
+    QByteArray byteImg;
+    query.prepare(querySelect);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            byteImg = query.value("imgData").toByteArray();
+            pixImg.loadFromData(byteImg);
+            break;
+        }
+    }
+
+    return pixImg;
+}
+
+QPixmap MainWindow::getImageNa()
+{
+    QPixmap pixImg;
+    QString querySelect = "SELECT imgData FROM image where iOwn = 2";
+    QSqlQuery query;
+    QByteArray byteImg;
+    query.prepare(querySelect);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            byteImg = query.value("imgData").toByteArray();
+            pixImg.loadFromData(byteImg);
+            break;
+        }
+    }
+
+    return pixImg;
 }
