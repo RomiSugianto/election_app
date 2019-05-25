@@ -41,6 +41,7 @@ void MainWindow::cekLvl(bool lvl)
     if (lvl == 1 )
     {
         adminPage.exec();
+        ui->statusBar->showMessage("you're admin and dont have rights to choose");
     }
 }
 
@@ -50,7 +51,6 @@ void MainWindow::cekStatus(bool settleStatus)
     {
         ui->pushButton_settle->hide();
         ui->statusBar->showMessage("you've already choose");
-        MainWindow::close();
     }
 }
 

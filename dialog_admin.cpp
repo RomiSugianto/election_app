@@ -86,6 +86,10 @@ void Dialog_admin::insertDataToTable(QList<UserData> listUserData)
         ui->tableWidget->setItem(row, 1, new QTableWidgetItem(userData.getName()));
         ui->tableWidget->setItem(row, 2, new QTableWidgetItem(userData.getAddress()));
         ui->tableWidget->setItem(row, 3, new QTableWidgetItem(QString::number(userData.getStatus())));
+        ui->tableWidget->item(row, 0)->setFlags(ui->tableWidget->item(row, 0)->flags() & ~Qt::ItemIsEditable);
+        ui->tableWidget->item(row, 1)->setFlags(ui->tableWidget->item(row, 1)->flags() & ~Qt::ItemIsEditable);
+        ui->tableWidget->item(row, 2)->setFlags(ui->tableWidget->item(row, 2)->flags() & ~Qt::ItemIsEditable);
+        ui->tableWidget->item(row, 3)->setFlags(ui->tableWidget->item(row, 3)->flags() & ~Qt::ItemIsEditable);
     }
 }
 
