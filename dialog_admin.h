@@ -15,7 +15,7 @@ class Dialog_admin : public QDialog
     Q_OBJECT
 
 public :
-    int total_jp,total_np,total_nsy,total_settle,total_user;
+    int total_jp,total_na,total_nsy,total_settle,total_user;
 
 public:
     explicit Dialog_admin(QWidget *parent = nullptr);

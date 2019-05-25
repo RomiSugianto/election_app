@@ -126,10 +126,10 @@ void Dialog_admin::on_pushButton_show_clicked()
     {
         while(mysqlQuery.next())
         {
-            total_jp = mysqlQuery.value("total").toInt();
+            total_na = mysqlQuery.value("total").toInt();
             if(mysqlQuery.size() > 0)
             {
-                ui->lcdNumber_na->display(QString::number(total_jp));
+                ui->lcdNumber_na->display(QString::number(total_na));
                 ui->progressBar->setValue(50);
             }
             break;
@@ -167,9 +167,14 @@ void Dialog_admin::on_pushButton_show_clicked()
         while(mysqlQuery.next())
         {
             total_user = mysqlQuery.value("total").toInt();
+            int percentage_jp=100*total_jp/total_settle;
+            int percentage_na=100*total_na/total_settle;
+            int percentage_settle=100*total_settle/total_user;
             if(mysqlQuery.size() > 0)
             {
-
+                ui->progressBar_jp->setValue(percentage_jp);
+                ui->progressBar_na->setValue(percentage_na);
+                ui->progressBar_settle->setValue(percentage_settle);
             }
             break;
         }
