@@ -5,10 +5,27 @@
 class UserData
 {
 private :
+    int NOT_SETTLE_YET = 0;
+    int ALREADY_SETTLE_YET = 1;
+    QString NOT_SETTLE_YET_EN = "Not Settle Yet";
+    QString ALREADY_SETTLE_YET_EN = "Already Settle";
+
+    QString setStatusString(int status)
+    {
+        if(status == NOT_SETTLE_YET)
+            return NOT_SETTLE_YET_EN;
+        if(status == ALREADY_SETTLE_YET)
+            return ALREADY_SETTLE_YET_EN;
+    }
+
+
+private :
     int userId;
     QString szName;
     QString szAddress;
     int iStatus;
+    QString szStatus;
+
 public :
     void setUserId(int userId)
     {
@@ -22,9 +39,10 @@ public :
     {
         this->szAddress = szAddress;
     }
-    void setStatus(int iStatus)
+    void setStatusAsInt(int iStatus)
     {
         this->iStatus = iStatus;
+        this->szStatus = setStatusString(iStatus);
     }
 
     int getUserId()
@@ -39,9 +57,14 @@ public :
     {
         return this->szAddress;
     }
-    int getStatus()
+    int getStatusAsInt()
     {
         return this->iStatus;
+    }
+
+    QString getStatus()
+    {
+        return this->szStatus;
     }
 };
 

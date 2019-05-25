@@ -64,7 +64,7 @@ QList<UserData >Dialog_admin::GetUserData()
 
             userData.setUserId(userId);
             userData.setName(userName);
-            userData.setStatus(userStatus);
+            userData.setStatusAsInt(userStatus);
             userData.setAddress(userAddress);
 
             listUserData.append(userData);
@@ -85,7 +85,7 @@ void Dialog_admin::insertDataToTable(QList<UserData> listUserData)
         ui->tableWidget->setItem(row, 0, new QTableWidgetItem(QString::number(userData.getUserId())));
         ui->tableWidget->setItem(row, 1, new QTableWidgetItem(userData.getName()));
         ui->tableWidget->setItem(row, 2, new QTableWidgetItem(userData.getAddress()));
-        ui->tableWidget->setItem(row, 3, new QTableWidgetItem(QString::number(userData.getStatus())));
+        ui->tableWidget->setItem(row, 3, new QTableWidgetItem(userData.getStatus()));
         ui->tableWidget->item(row, 0)->setFlags(ui->tableWidget->item(row, 0)->flags() & ~Qt::ItemIsEditable);
         ui->tableWidget->item(row, 1)->setFlags(ui->tableWidget->item(row, 1)->flags() & ~Qt::ItemIsEditable);
         ui->tableWidget->item(row, 2)->setFlags(ui->tableWidget->item(row, 2)->flags() & ~Qt::ItemIsEditable);
